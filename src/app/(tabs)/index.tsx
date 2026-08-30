@@ -1,27 +1,36 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
+import Colors from "../../constants/Colors";
+import events from "../../../assets/data/events";
+
+const event = events[0];
 
 export default function TabOneScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Event 1</Text>
-      <Text>Free</Text>
+      <Image source={{ uri: event.image }} style={styles.image} />
+      <Text style={styles.title}>{event.title}</Text>
+      <Text style={styles.price}>${event.price}</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: "white",
+    padding: 10,
+    borderRadius: 20,
   },
   title: {
     fontSize: 20,
+    fontWeight: "600",
+    marginVertical: 10,
+  },
+  price: {
+    color: Colors.light.tint,
     fontWeight: "bold",
   },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: "80%",
+  image: {
+    width: 400,
+    aspectRatio: 1,
   },
 });
